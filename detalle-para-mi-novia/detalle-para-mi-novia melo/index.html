@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            text-align: center;
+        }
+        .entrada {
+    animation: aparecer 1.5s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.corazon-explosion {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    font-size: 25px;
+    pointer-events: none;
+    animation: explosion 1.5s ease-out forwards;
+    z-index: 2000;
+}
+
+@keyframes explosion {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(
+            calc(-50% + var(--x)),
+            calc(-50% + var(--y))
+        ) scale(1.4) rotate(360deg);
+        opacity: 0;
+    }
+}
+        .contenedor {
+            padding: 30px;
+        }
+
+        .corazon {
+            font-size: 120px;
+            animation: latido 0.6s infinite;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            background: white;
+            color: #ff4f81;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+
+        @keyframes latido {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .corazon-flotante {
+    position: fixed;
+    bottom: -50px;
+    font-size: 25px;
+    animation: subir 6s linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 500px;
+    margin: 25px auto;
+}
+
+.galeria img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px solid white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.04) rotate(1deg);
+}
+.foto {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px;
+    border-radius: 22px;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+}
+
+.foto:hover {
+    transform: translateY(-8px) rotate(1deg);
+}
+
+.foto p {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.final {
+    max-width: 700px;
+    padding: 40px 25px;
+}
+
+.final h1 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.final p {
+    font-size: 19px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.final h2 {
+    font-size: 30px;
+    margin: 30px 0;
+}
+
+.frase-final {
+    animation: aparecerFrase 2s ease-in-out;
+}
+
+@keyframes aparecerFrase {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.frase-final {
+    animation: aparecerFrase 2s ease-in-out;
+}
+
+@keyframes aparecerFrase {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.corazon-grande {
+    font-size: 80px;
+    animation: latido 1.2s infinite;
+    margin: 20px 0;
+}
+
+.firma {
+    font-style: italic;
+    opacity: 0.9;
+    margin-top: 30px;
+}
+#botonMusica {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.9);
+    color: #ff4f81;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#botonMusica:hover {
+    transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+    <audio id="musica" loop>
+    <source src="./musica/cancion.mp3" type="audio/mpeg">
+</audio>
+ 
+<button id="botonMusica" onclick="controlarMusica()">
+    🎵
+</button>   
+
+<div class="corazones">
+
+    <span class="corazon-flotante" style="left: 10%; animation-delay: 0s;">❤️</span>
+    <span class="corazon-flotante" style="left: 25%; animation-delay: 2s;">💕</span>
+    <span class="corazon-flotante" style="left: 40%; animation-delay: 4s;">❤️</span>
+    <span class="corazon-flotante" style="left: 60%; animation-delay: 1s;">💗</span>
+    <span class="corazon-flotante" style="left: 75%; animation-delay: 3s;">💕</span>
+    <span class="corazon-flotante" style="left: 90%; animation-delay: 5s;">❤️</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 4s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 6s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 1s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 1s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 8s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 4s;">💖</span>
+    <span class="corazon-flotante" style="left: 10%; animation-delay: 0s;">❤️</span>
+    <span class="corazon-flotante" style="left: 25%; animation-delay: 2s;">💕</span>
+    <span class="corazon-flotante" style="left: 40%; animation-delay: 4s;">❤️</span>
+    <span class="corazon-flotante" style="left: 60%; animation-delay: 1s;">💗</span>
+    <span class="corazon-flotante" style="left: 75%; animation-delay: 3s;">💕</span>
+    <span class="corazon-flotante" style="left: 90%; animation-delay: 5s;">❤️</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 4s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 6s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 1s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 1s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 8s;">💖</span>
+    <span class="corazon-flotante" style="left: 5%; animation-delay: 4s;">💖</span>
+
+</div>
+
+    <div class="contenedor entrada">
+
+        <div class="corazon">❤️</div>
+
+        <h1>Para ti</h1>
+
+        <p>Tengo algo preparado especialmente para ti...</p>
+
+        <button onclick="mostrarMensaje()">
+            Abrir ❤️
+        </button>
+
+    </div>
+
+    <script>
+    function crearExplosion() {
+
+    const corazones = ["❤️", "💕", "💗", "💖", "💓", "🥰"];
+
+    for (let i = 0; i < 100; i++) {
+
+        const corazon = document.createElement("span");
+
+        corazon.className = "corazon-explosion";
+
+        corazon.textContent =
+            corazones[Math.floor(Math.random() * corazones.length)];
+
+        const x = (Math.random() - 0.5) * 500;
+        const y = (Math.random() - 0.5) * 700;
+
+        corazon.style.setProperty("--x", `${x}px`);
+        corazon.style.setProperty("--y", `${y}px`);
+
+        document.body.appendChild(corazon);
+
+        setTimeout(() => {
+            corazon.remove();
+        }, 2000);
+    }
+}
+    function mostrarMensaje() {
+        
+        const musica = document.getElementById("musica");
+        
+        musica.play();
+
+        crearExplosion();
+        
+        document.querySelector(".contenedor").innerHTML = `
+            <div class="contenedor">
+                <div class="corazon">💗</div>
+
+               <h1>Hola, mi pastelito de vainilla (melody)🍰❤️</h1>
+
+<p>
+    Quería hacerte un detalle diferente espero te guste princesa.
+</p>
+
+<p>
+    No quería simplemente comprarte algo y ya.
+    Quería hacer algo que tuviera un pedacito de mí,
+    aunque me costara un poquito hacerlo.
+</p>
+
+<p>
+    Porque tú mereces que de vez en cuando
+    alguien se tome el tiempo de hacer algo
+    especialmente para ti.
+</p>
+
+<button onclick="siguiente()">
+    Continuar 🌷
+</button>
+            </div>
+        `;
+    }
+
+    function siguiente() {
+        document.querySelector(".contenedor").innerHTML = `
+            <div class="contenedor">
+                <div class="corazon">🥰</div>
+
+               <h1>¿Sabes qué es lo bonito? ❤️</h1>
+
+<p>
+    Que cuando pienso en qué es lo que más me gusta de ti,
+    realmente no sé por dónde empezar porque aveces me quedo mirandote
+    y te enojas pero realmente estoy mirandote y siendo feliz porque 
+    lo encontre todo contigo .
+</p>
+
+<p>
+    Me gusta tu personalidad, tu forma de ser,
+    tu físico, tu manera de hacer las cosas...
+</p>
+
+<p>
+    En pocas palabras:
+    <strong>me gustas tú, completa. ❤️</strong>
+</p>
+
+<button onclick="recuerdos()">
+    Ver nuestros recuerdos 📸
+</button>
+            </div>
+
+        
+        `;
+    }
+function recuerdos() {
+    document.querySelector(".contenedor").innerHTML = `
+        <div class="contenedor recuerdos">
+
+            <h1>Nuestros recuerdos 📸</h1>
+
+            <p>
+                Hay momentos que quizá parecen pequeños,
+                pero que para mí significan muchísimo.
+            </p>
+
+            <div class="galeria">
+
+    <div class="foto">
+        <img src="./fotos/foto1.jpg" alt="Nuestro recuerdo">
+        <p>Un momento que guardo con mucho cariño ❤️</p>
+    </div>
+
+    <div class="foto">
+        <img src="./fotos/foto2.jpg" alt="Nuestro recuerdo">
+        <p>Porque contigo hasta los momentos sencillos son especiales 🥰</p>
+    </div>
+
+    <div class="foto">
+        <img src="./fotos/foto3.jpg" alt="Nuestro recuerdo">
+        <p>Uno de esos recuerdos que me gusta volver a mirar 💕</p>
+    </div>
+
+    <div class="foto">
+        <img src="./fotos/foto4.jpg" alt="Nuestro recuerdo">
+        <p>Y espero que sean muchos más los que nos falten por vivir ❤️</p>
+    </div>
+
+</div>
+
+            <button onclick="final()">
+                Continuar 🌷
+            </button>
+        </div>
+    `;
+}
+    function final() {
+    document.querySelector(".contenedor").innerHTML = `
+        <div class="contenedor final">
+
+            <div class="corazon">❤️</div>
+
+            <h1>Mi pastelito de vainilla 🍰❤️</h1>
+
+            <p>
+                Si llegaste hasta aquí, quiero que sepas algo.
+            </p>
+
+            <p>
+                Todo esto lo hice pensando en ti.
+                En nosotros, en nuestros momentos y en todas
+                esas pequeñas cosas que hacen que seas tú porque 
+                aunque muchas veces no nos entendamos,
+                siempre estamos juntos y eso se vuelve maravilloso
+                gracias por acompañarme en cada momento te amo <3.
+            </p>
+
+            <p>
+                Quería darte algo diferente.
+                Algo que no simplemente pudiera comprar en una tienda,
+                sino algo en lo que pudiera dejar un poquito de mí y 
+                ps porque no aprovechar esto, espero te guste o te impresione
+                lo hice con mucho amor.
+            </p>
+
+            <p>
+                Y aunque quizá no sea perfecto,
+                cada parte de esto la hice con muchísimo cariño.
+            </p>
+
+            <p>
+                Porque tú eres una persona muy especial para mí
+                y quería que tuvieras un detalle que pudieras guardar,
+                mirar y recordara ti que te encanta estar en el celular
+                al menos ahora tendras una carta que podras ver siempre
+                mi cosita preciosa.
+            </p>
+
+            <h2 class="frase-final">
+                Te quiero muchísimo muchisimo mas de lo que te imaginas 
+                mi querida melody besitos y abrazos mi muñequita. ❤️
+            </h2>
+
+            <p>
+                Y espero que todavía nos queden
+                muchísimos momentos, fotografías,
+                risas y recuerdos por vivir juntos.
+            </p>
+
+            <div class="corazon-grande">
+                ❤️
+            </div>
+
+            <p class="firma">
+                Hecho especialmente para ti.
+            </p>
+
+        </div>
+        <button onclick="reiniciar()">
+            Volver a empezar ❤️
+          </button>
+    `;
+}
+function controlarMusica() {
+
+    const musica = document.getElementById("musica");
+    const boton = document.getElementById("botonMusica");
+
+    if (musica.paused) {
+        musica.play();
+        boton.textContent = "🎵";
+    } else {
+        musica.pause();
+        boton.textContent = "🔇";
+    }
+}
+function reiniciar() {
+
+    location.reload();
+
+}
+</script>
+
+</body>
+</html>
